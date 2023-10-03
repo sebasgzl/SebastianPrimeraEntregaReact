@@ -1,25 +1,10 @@
-/* import React from 'react'
-import './NavBaer.css'
 
-const NavBar = () => {
-    return (
-       <nav>
-        <h3>GamerShop</h3>
-        <ul>
-            <li>Monitores</li>
-            <li>Mouse</li>
-            <li>PC</li>
-            <li>Teclado</li>
-        </ul>
-       </nav>
-    )
-}
-export default NavBar */
 
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import CartWidget from '../CartWidget/CartWidget';
 
 function NavBar() {
   return (
@@ -45,6 +30,8 @@ function NavBar() {
           </Nav>
         </Navbar.Collapse>
       </Container>
+
+      <CartWidget />
     </Navbar>
   );
 }
