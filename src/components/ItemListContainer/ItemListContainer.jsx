@@ -1,41 +1,28 @@
-import React from 'react'
-import { Item } from '../Item/Item'
-import {useState} from "react";
-import "../ItemListContainer/ItemListContainer.css"
-const ItemListContainer = ({greeting}) => {
-  
-    const[users, setUsers]= useState()
-  
-   const productos=[{
-    id: 1,
-    nombre:"teclado",
-    /* imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3T3ZXsP7wGI0REwMll2lIjNJl7ZLTFomaSqiNBfm-SF0b7EekNcvAUVRP6fFZIx54bCk&usqp=CAU" */
-  },
-  {
-    id:2,
-    nombre:"mouse",
 
-  }] 
-  
-  const newUser = productos.forEach((user)=>user.id === 1)
-    
-  function cambio () {
-    setUsers(newUser);
-    console.log(users)
-  }
-  
-  
-  
+import {useEffect, useState} from "react";
+import "../ItemListContainer/ItemListContainer.css";
+import { getProducts } from "../../aproduct";
+import ItemList from "../ItemList/ItemList";
+
+const ItemListContainer = ({greeting}) => { 
+    const[products, setProducts]= useState([])
+  useEffect(() => {
+    getProducts()
+    .then(response => {
+      setProducts(response)
+    })
+    .catch(error => {
+      console.error(error)
+    })
+  })
   return (
-    <div >
-        <h2 className='titulo'>{greeting}</h2>  
-
-        <button onClick={cambio}>Clic</button>      
-        <div>
-            <Item user={users}/>
-        </div>
-  </div>
+    <div>
+      <h1 className="titulo">{ greeting }</h1>
+      <ItemList products ={products}/>
+    </div>
   )
-}
+  } 
+  
+
 
 export default ItemListContainer
