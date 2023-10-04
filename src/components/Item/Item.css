@@ -1,0 +1,11 @@
+.article{
+    background-color: chocolate;
+    padding: 1.5em;
+    margin: 1em;
+    border: solid cornflowerblue;
+}
+
+.imgs{
+    width: 236px;
+    height: 305px;  
+}

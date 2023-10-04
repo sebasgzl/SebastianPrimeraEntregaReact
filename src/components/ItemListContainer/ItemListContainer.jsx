@@ -1,28 +1,35 @@
 
-import {useEffect, useState} from "react";
-import "../ItemListContainer/ItemListContainer.css";
-import { getProducts } from "../../aproduct";
+import { useState, useEffect } from "react";
+import { getProducts, getProductsByCategory } from "../../aproduct";
 import ItemList from "../ItemList/ItemList";
 
-const ItemListContainer = ({greeting}) => { 
+import { useParams } from "react-router-dom";
+
+const ItemListContainer = ({greeting}) => {
     const[products, setProducts]= useState([])
-  useEffect(() => {
-    getProducts()
-    .then(response => {
-      setProducts(response)
-    })
-    .catch(error => {
-      console.error(error)
-    })
-  })
-  return (
-    <div>
-      <h1 className="titulo">{ greeting }</h1>
-      <ItemList products ={products}/>
-    </div>
-  )
-  } 
-  
+    const {categoryId} = useParams()
 
+    useEffect(() => {
+      const eproducts = categoryId ? getProductsByCategory : getProducts
 
+      getProducts()
+      .then(response => {
+        setProducts(response)
+      })
+      .catch(error => {
+        console.error(error)
+      })
+    }, [categoryId] )
+    
+    return (
+        <div>
+            <h1>{greeting}</h1>
+            <ItemList products ={products}/>
+        </div>
+    )
+}
 export default ItemListContainer
+
+
+
+

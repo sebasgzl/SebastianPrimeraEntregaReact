@@ -1,7 +1,7 @@
-import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer"
+
 import ItemCount from "../ItemCount/ItemCount"
 
-const Item = ({id, nombre,img,price,stock}) => {
+const ItemDetail = ({id, nombre,img,price,stock}) => {
     return (
       <article>
         <header>
@@ -20,5 +20,5 @@ const Item = ({id, nombre,img,price,stock}) => {
       </article>
     )
   }
-  
-  export default ItemDetailContainer
+
+  export default ItemDetail

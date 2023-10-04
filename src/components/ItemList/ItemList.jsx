@@ -1,9 +1,9 @@
 
-import "../Item/Item"
-
+import Item from "../Item/Item"
+import "../ItemList/ItemList.css"
 const ItemList = ( {products}) => {
     return(
-        <div>
+        <div className="container">
             {products.map(prod => <Item key={prod.id} {...prod}/>)}
         </div>
     )

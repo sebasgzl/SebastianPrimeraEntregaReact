@@ -1,0 +1,15 @@
+.nav{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.flex{
+    display: flex;
+    align-items: center;
+}
+
+.btns{
+    position: relative;
+    right: 20px;
+}
+
